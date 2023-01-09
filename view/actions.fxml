@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="677.0" style="-fx-background-color: #13242A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="151.0" layoutX="274.0" layoutY="52.0">
+         <image>
+            <Image url="@../images/atm-card.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="151.0" layoutY="271.0" prefHeight="278.0" prefWidth="396.0">
+         <children>
+            <Button fx:id="balanceBtn" mnemonicParsing="false" onAction="#onBalance" prefHeight="93.0" prefWidth="396.0" style="-fx-background-color: #2C5363; -fx-background-radius: 0;" text="BALANCE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="withdrawBtn" mnemonicParsing="false" onAction="#onWithdraw" prefHeight="91.0" prefWidth="396.0" style="-fx-background-color: #335F71; -fx-background-radius: 0;" text="WITHDRAW" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="depositBtn" mnemonicParsing="false" onAction="#onDeposit" prefHeight="93.0" prefWidth="416.0" style="-fx-background-color: #386B80; -fx-background-radius: 0;" text="DEPOSIT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="closeBtn" mnemonicParsing="false" onAction="#onClose" prefHeight="85.0" prefWidth="396.0" style="-fx-background-color: #A20207; -fx-background-radius: 0;" text="CLOSE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
