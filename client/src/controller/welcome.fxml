@@ -6,13 +6,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="679.0" style="-fx-background-color: #002642;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="679.0" style="-fx-background-color: #002642;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.welcomeController">
    <children>
       <Button fx:id="startBtn" layoutX="377.0" layoutY="220.0" mnemonicParsing="false" onAction="#start" prefHeight="43.0" prefWidth="244.0" style="-fx-background-color: #c26015; -fx-text-fill: #fff; -fx-font-weight: bold; -fx-font-size: 20;" text="START" />
       <Label layoutX="377.0" layoutY="170.0" prefHeight="36.0" prefWidth="181.0" style="-fx-text-fill: #fff; -fx-font-weight: bold; -fx-font-size: 30px;" text="WELCOME" />
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="83.0" layoutY="120.0">
          <image>
-            <Image url="@../images/atm-machine.png" />
+            <Image url="@../Application/images/atm-machine.png" />
          </image>
       </ImageView>
    </children>

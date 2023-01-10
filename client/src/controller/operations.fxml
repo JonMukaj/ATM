@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="677.0" style="-fx-background-color: #13242A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="677.0" style="-fx-background-color: #13242A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.operationsController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="151.0" layoutX="274.0" layoutY="52.0">
          <image>
-            <Image url="@../images/atm-card.png" />
+            <Image url="@../Application/images/atm-card.png" />
          </image>
       </ImageView>
       <VBox layoutX="151.0" layoutY="271.0" prefHeight="278.0" prefWidth="396.0">

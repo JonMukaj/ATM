@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="704.0" style="-fx-background-color: #003052;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="704.0" style="-fx-background-color: #003052;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.withdrawController">
    <children>
       <Button fx:id="twenty" layoutX="227.0" layoutY="192.0" mnemonicParsing="false" onAction="#onTwentyClick" prefHeight="74.0" prefWidth="183.0" style="-fx-background-color: #85CCFF; -fx-background-radius: 0;" text="20$" textFill="WHITE">
          <font>
@@ -42,7 +42,7 @@
       </Label>
       <ImageView fitHeight="52.0" fitWidth="54.0" layoutX="24.0" layoutY="17.0">
          <image>
-            <Image url="@../images/back.png" />
+            <Image url="@../Application/images/back.png" />
          </image>
       </ImageView>
       <Button fx:id="withdrawBtn" contentDisplay="CENTER" disable="true" layoutX="425.0" layoutY="373.0" mnemonicParsing="false" onAction="#withdraw" prefHeight="74.0" prefWidth="190.0" style="-fx-background-color: #38b52f; -fx-background-radius: 0;" text="Withdraw" textFill="WHITE">
