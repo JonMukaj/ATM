@@ -1,10 +1,12 @@
+package controller;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class PleaseProvideControllerClassName {
+public class depositController {
 
     @FXML
     private TextField amountField;
