@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.atmClient;
 
@@ -16,17 +17,15 @@ public class welcomeController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    public static atmClient client;
     @FXML
     private Button startBtn;
-
     @FXML
     void start(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("operations.fxml"));
-        stage = (Stage) startBtn.getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        atmClient client = new atmClient("127.0.0.1", 3000);
+        client = new atmClient("127.0.0.1", 3000);
+        authController a = new authController();
+        a.authenticateHandler(startBtn);
     }
 
 }

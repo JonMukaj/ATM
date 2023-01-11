@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="704.0" style="-fx-background-color: #003052;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.withdrawController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="704.0" style="-fx-background-color: #003052;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.withdrawController">
    <children>
-      <Button fx:id="twenty" layoutX="227.0" layoutY="192.0" mnemonicParsing="false" onAction="#onTwentyClick" prefHeight="74.0" prefWidth="183.0" style="-fx-background-color: #85CCFF; -fx-background-radius: 0;" text="20$" textFill="WHITE">
+      <Button fx:id="twenty" layoutX="227.0" layoutY="192.0" mnemonicParsing="false" onAction="#onTwentyClick" prefHeight="74.0" prefWidth="183.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" text="20$" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Button>
-      <Button fx:id="fifty" layoutX="425.0" layoutY="192.0" mnemonicParsing="false" onAction="#onFiftyClick" prefHeight="74.0" prefWidth="190.0" style="-fx-background-color: #85CCFF; -fx-background-radius: 0;" text="50$" textFill="WHITE">
+      <Button fx:id="fifty" layoutX="425.0" layoutY="192.0" mnemonicParsing="false" onAction="#onFiftyClick" prefHeight="74.0" prefWidth="190.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" text="50$" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -25,7 +25,7 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Button>
-      <Button fx:id="hundred" layoutX="425.0" layoutY="282.0" mnemonicParsing="false" onAction="#onHundredClick" prefHeight="74.0" prefWidth="190.0" style="-fx-background-color: #70C3FF; -fx-background-radius: 0;" text="100$" textFill="WHITE">
+      <Button fx:id="hundred" layoutX="425.0" layoutY="282.0" mnemonicParsing="false" onAction="#onHundredClick" prefHeight="74.0" prefWidth="190.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" text="100$" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -40,20 +40,39 @@
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <ImageView fitHeight="52.0" fitWidth="54.0" layoutX="24.0" layoutY="17.0">
-         <image>
-            <Image url="@../Application/images/back.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="withdrawBtn" contentDisplay="CENTER" disable="true" layoutX="425.0" layoutY="373.0" mnemonicParsing="false" onAction="#withdraw" prefHeight="74.0" prefWidth="190.0" style="-fx-background-color: #38b52f; -fx-background-radius: 0;" text="Withdraw" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="27.0" />
-         </font>
-      </Button>
-      <Button fx:id="twoHundred" layoutX="227.0" layoutY="373.0" mnemonicParsing="false" onAction="#onTwohundredClick" prefHeight="74.0" prefWidth="183.0" style="-fx-background-color: #70C3FF; -fx-background-radius: 0;" text="200$" textFill="WHITE">
+      <Button fx:id="withdrawBtn" contentDisplay="CENTER" disable="true" layoutX="425.0" layoutY="373.0" mnemonicParsing="false" onAction="#withdraw" prefHeight="74.0" prefWidth="190.0" style="-fx-background-color: f80b0b; -fx-background-radius: 0;" text="Withdraw" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Button>
+      <Button fx:id="twoHundred" layoutX="227.0" layoutY="373.0" mnemonicParsing="false" onAction="#onFivehundredClick" prefHeight="74.0" prefWidth="183.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" text="500$" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="backBtn" layoutX="13.0" layoutY="18.0" mnemonicParsing="false" onAction="#onBackClicked" prefHeight="52.0" prefWidth="58.0" style="-fx-background-color: #003052; -fx-background-radius: 10;" text="Back">
+         <graphic>
+            <ImageView fitHeight="44.0" fitWidth="42.0">
+               <image>
+                  <Image url="@../Application/images/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="successLabel" layoutX="477.0" layoutY="449.0" text="Success!" textAlignment="CENTER" textFill="#39ff5a" visible="false">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorLabel" layoutX="449.0" layoutY="447.0" text="Wrong Input!" textAlignment="CENTER" textFill="#f80b0b" visible="false">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="fundsLabel" layoutX="424.0" layoutY="449.0" text="Insufficient Funds!" textAlignment="CENTER" textFill="#f80b0b" visible="false">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

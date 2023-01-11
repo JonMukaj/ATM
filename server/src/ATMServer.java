@@ -263,8 +263,8 @@ class ClientHandler implements Runnable {
             Log.output("RESPONSE: Sent 'NOTOK' to " + connectionSocket.getRemoteSocketAddress() + ".");
 
             // Send an explanatory message
-            send("Debit request refused as account only holds $" + currentAccount.balance + " .");
-            Log.output("RESPONSE: Sent 'Debit request refused as account only holds $" + currentAccount.balance + " .' to " + connectionSocket.getRemoteSocketAddress() + ".");
+            send("Debit request refused as account only holds $" + currentAccount.balance + ".");
+            Log.output("RESPONSE: Sent 'Debit request refused as account only holds $" + currentAccount.balance + ".' to " + connectionSocket.getRemoteSocketAddress() + ".");
         }
     }
 
@@ -279,8 +279,8 @@ class ClientHandler implements Runnable {
         Log.output("RESPONSE: Sent 'OK' to " + connectionSocket.getRemoteSocketAddress() + ".");
 
         // Send an explanatory message
-        send("Account balance has been updated and now you hold $" + currentAccount.balance + " .");
-        Log.output("RESPONSE: Sent 'Account balance has been updated and now you hold $" + currentAccount.balance + " .' to " + connectionSocket.getRemoteSocketAddress() + ".");
+        send("Account balance has been updated and now you hold $" + currentAccount.balance + ".");
+        Log.output("RESPONSE: Sent 'Account balance has been updated and now you hold $" + currentAccount.balance + ".' to " + connectionSocket.getRemoteSocketAddress() + ".");
     }
 }
 
