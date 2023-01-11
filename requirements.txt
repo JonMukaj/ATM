@@ -1,14 +1,15 @@
 Buttons for Client APP
 1. START: establish connection
-either connect to default ('localhost', 3000) if this fails meaning server is on another socket...
-show prompt to enter <ip>, <port> of server
-2. CLOSE: to close connection (quitPrompt method on BankClient.java)
-3. AUTH: authenticate with ATM 
-- prompt( window/textbox etc) for entering pin and shows response message(success, failure auth)
-4. BALANCE: balance and client info
-5. WITHDRAW: enter amount to withdraw prompt
-6. DEPOSIT: enter amount to deposit prompt
-6. QUIT: button to quit CLIENT APP
+- either connect to default ('localhost', 3000) +
+show prompt to enter <ip>, <port> of server -
+- icon img set +
+2. CLOSE: to close connection and exit program + 
+3. AUTH: authenticate with ATM
+- prompt( window/textbox etc) for entering pin and shows response message(success, failure auth) +
+4. BALANCE: balance and client info -
+5. WITHDRAW: enter amount to withdraw prompt +
+6. DEPOSIT: enter amount to deposit prompt +
+6. QUIT: button to close CLIENT connection +
 
 
 Buttons for Server APP
@@ -17,3 +18,5 @@ Buttons for Server APP
 - if no number is entered, clicking the button will show an error
 2. Close: close socket (method closeServer on BankServer.java)
 
+stylesheet:
+implement hover buttons - 

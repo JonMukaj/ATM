@@ -2,6 +2,7 @@ package Application;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,7 +16,7 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
-//            primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("images/Design.png")));
+            primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("images/icon.png")));
             primaryStage.setTitle("ATM");
             primaryStage.setResizable(false);
         } catch (Exception e) {

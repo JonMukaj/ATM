@@ -19,6 +19,38 @@ public class atmClient {
     // at the specified address and port.
     public atmClient(String address, int port)
     {
+        try {
+            establishConnection(address, port);
+        } catch(IOException i)  {
+            System.out.println(i.getMessage());
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+//        finally {
+//            // Regardless of whether an exception occurs,
+//            // the streams and socket should be closed.
+//            try {
+//                if (socket != null) {
+//                    socket.close();
+//                }
+//                if (inputStreamReader != null) {
+//                    inputStreamReader.close();
+//                }
+//                if (outputStreamWriter != null) {
+//                    outputStreamWriter.close();
+//                }
+//                if (bufferedReader != null) {
+//                    bufferedReader.close();
+//                }
+//                if (bufferedWriter != null) {
+//                    bufferedWriter.close();
+//                }
+//            }
+//            catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
         // Code must be wrapped in try/catch blocks to handle socket exceptions
 //        try {
 //            cin = new Scanner(System.in);
@@ -176,7 +208,7 @@ public class atmClient {
         bufferedWriter = new BufferedWriter(outputStreamWriter);
     }
 
-    private void closeConnection() throws IOException {
+    public void closeConnection() throws IOException {
         if(socket == null) {
             System.out.println("You are not connected to an ATM.");
             return;
@@ -205,11 +237,11 @@ public class atmClient {
         System.out.println("Connection closed successfully.");
     }
 
-    private boolean authenticateUser() throws IOException {
+    public boolean authenticateUser(String text) throws IOException {
         // Prompt the user for a PIN
-        System.out.print("Enter your PIN: ");
-        String pin = cin.nextLine();
-
+//        System.out.print("Enter your PIN: ");
+//        String pin = cin.nextLine();
+        String pin = (text == "" ? "null" : text);
         // Send the AUTH command to the server
         send("AUTH " + pin);
 
@@ -219,7 +251,7 @@ public class atmClient {
         return response.equals("OK");
     }
 
-    private void getAccountBalance() throws IOException {
+    public void getAccountBalance() throws IOException {
         // Send the BALANCE command to the server
         send("BALANCE");
 
@@ -235,16 +267,16 @@ public class atmClient {
 
     }
 
-    private void withdrawFunds() throws IOException {
+    public boolean withdrawFunds(int amount) throws IOException {
         // Prompt the user for an amount
-        System.out.print("Enter the amount to withdraw: ");
-        String amount = cin.nextLine();
+//        System.out.print("Enter the amount to withdraw: ");
+//        String amount = cin.nextLine();
 
         // Validate amount entered by the user (must be a positive number)
-        if(!amount.matches("[0-9]+")) {
-            System.out.println("Invalid amount entered, must be a positive amount!");
-            return;
-        }
+//        if(!amount.matches("[0-9]+")) {
+//            System.out.println("Invalid amount entered, must be a positive amount!");
+//            return;
+//        }
 
         // Send the DEBIT command to the server
         send("DEBIT " + amount);
@@ -254,18 +286,18 @@ public class atmClient {
 
         response = bufferedReader.readLine();
         System.out.println(response);
+        return !response.contains("refused");
     }
 
-    private void depositFunds() throws IOException {
+    public void depositFunds(int amount) throws IOException {
         // Prompt the user for an amount
-        System.out.print("Enter the amount to deposit: ");
-        String amount = cin.nextLine();
-
+//        System.out.print("Enter the amount to deposit: ");
+//        String amount = cin.nextLine();
         // Validate amount entered by user (must be a positive number)
-        if(!amount.matches("[0-9]+")) {
-            System.out.println("Invalid amount entered, must be a positive amount!");
-            return;
-        }
+//        if(!amount.matches("[0-9]+")) {
+//            System.out.println("Invalid amount entered, must be a positive amount!");
+//            return;
+//        }
 
         // Send the CREDIT command to the server
         send("CREDIT " + amount);
