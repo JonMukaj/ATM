@@ -34,24 +34,24 @@
 }
 
 .values-bt {
-    -fx-background-color : #A20207;
+    -fx-background-color : #0083E0;
 }
 .values-bt:hover {
-    -fx-background-color : #890206;
+    -fx-background-color : #0176C9;
 }
 
 .debit-bt {
-    -fx-background-color : #A20207;
+    -fx-background-color : #f80b0b;
 }
 .debit-bt:hover {
-    -fx-background-color : #890206;
+    -fx-background-color : #C70808;
 }
 
 .credit-bt {
-    -fx-background-color : #A20207;
+    -fx-background-color : #38b52f;
 }
 .credit-bt:hover {
-    -fx-background-color : #890206;
+    -fx-background-color : #319D2A;
 }
 
 
