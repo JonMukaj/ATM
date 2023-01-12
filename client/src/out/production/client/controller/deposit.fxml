@@ -8,24 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="704.0" style="-fx-background-color: #003052;" stylesheets="@../Application/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.depositController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="704.0" style="-fx-background-color: #003052;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.depositController">
     <children>
-        <Button fx:id="twenty" layoutX="227.0" layoutY="192.0" mnemonicParsing="false" onAction="#onClickTwenty" prefHeight="74.0" prefWidth="183.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" styleClass="values-bt" text="20$" textFill="WHITE">
+        <Button fx:id="twenty" layoutX="227.0" layoutY="192.0" mnemonicParsing="false" onAction="#onClickTwenty" prefHeight="74.0" prefWidth="183.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" text="20$" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="30.0" />
             </font>
         </Button>
-        <Button fx:id="fifty" layoutX="425.0" layoutY="192.0" mnemonicParsing="false" onAction="#onClickFifty" prefHeight="74.0" prefWidth="190.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" styleClass="values-bt" text="50$" textFill="WHITE">
+        <Button fx:id="fifty" layoutX="425.0" layoutY="192.0" mnemonicParsing="false" onAction="#onClickFifty" prefHeight="74.0" prefWidth="190.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" text="50$" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="30.0" />
             </font>
         </Button>
-        <Button fx:id="seventy" layoutX="227.0" layoutY="282.0" mnemonicParsing="false" onAction="#onClickSeventy" prefHeight="74.0" prefWidth="183.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" styleClass="values-bt" text="70$" textFill="WHITE">
+        <Button fx:id="seventy" layoutX="227.0" layoutY="282.0" mnemonicParsing="false" onAction="#onClickSeventy" prefHeight="74.0" prefWidth="183.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" text="70$" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="30.0" />
             </font>
         </Button>
-        <Button fx:id="hundred" layoutX="425.0" layoutY="282.0" mnemonicParsing="false" onAction="#onClickHundred" prefHeight="74.0" prefWidth="190.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" styleClass="values-bt" text="100$" textFill="WHITE">
+        <Button fx:id="hundred" layoutX="425.0" layoutY="282.0" mnemonicParsing="false" onAction="#onClickHundred" prefHeight="74.0" prefWidth="190.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" text="100$" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="30.0" />
             </font>
@@ -40,7 +40,7 @@
                 <Font name="System Bold" size="30.0" />
             </font>
         </Button>
-        <Button fx:id="fivehundred" layoutX="227.0" layoutY="373.0" mnemonicParsing="false" onAction="#onClickFivehundred" prefHeight="74.0" prefWidth="183.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" styleClass="values-bt" text="500$" textFill="WHITE">
+        <Button fx:id="fivehundred" layoutX="227.0" layoutY="373.0" mnemonicParsing="false" onAction="#onClickFivehundred" prefHeight="74.0" prefWidth="183.0" style="-fx-background-color: #0083E0; -fx-background-radius: 0;" text="500$" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="30.0" />
             </font>

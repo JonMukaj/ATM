@@ -1,0 +1,60 @@
+.start-bt {
+    -fx-background-color : #c26015;
+}
+.start-bt:hover {
+    -fx-background-color : #B35812;
+}
+
+.balance-bt {
+    -fx-background-color : #2C5363;
+}
+.balance-bt:hover {
+    -fx-background-color : #21404C;
+}
+
+.deposit-bt {
+    -fx-background-color : #386B80;
+}
+.deposit-bt:hover {
+    -fx-background-color : #1B3540;
+}
+
+.withdraw-bt {
+    -fx-background-color : #335F71;
+}
+.withdraw-bt:hover {
+    -fx-background-color : #294D5B;
+}
+
+.close-bt {
+    -fx-background-color : #A20207;
+}
+.close-bt:hover {
+    -fx-background-color : #890206;
+}
+
+.values-bt {
+    -fx-background-color : #A20207;
+}
+.values-bt:hover {
+    -fx-background-color : #890206;
+}
+
+.debit-bt {
+    -fx-background-color : #A20207;
+}
+.debit-bt:hover {
+    -fx-background-color : #890206;
+}
+
+.credit-bt {
+    -fx-background-color : #A20207;
+}
+.credit-bt:hover {
+    -fx-background-color : #890206;
+}
+
+
+
+
+
