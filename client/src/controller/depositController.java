@@ -13,6 +13,7 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.SocketException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -69,11 +70,24 @@ public class depositController implements Initializable{
             if(amount == 0)
                 errorLabel.setVisible(true);
             else {
-                client.depositFunds(amount);
-                successLabel.setVisible(true);
+                if(client.depositFunds(amount))
+                    successLabel.setVisible(true);
+                else {
+                    stage = (Stage) depositBtn.getScene().getWindow();
+                    root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }
             }
         }catch (NumberFormatException n) {
             errorLabel.setVisible(true);
+        }catch (SocketException s) {
+            stage = (Stage) depositBtn.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
 
@@ -123,5 +137,6 @@ public class depositController implements Initializable{
 
     private void removeVisibility() {
         successLabel.setVisible(false);
-        errorLabel.setVisible(false);}
+        errorLabel.setVisible(false);
+    }
 }

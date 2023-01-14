@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.SocketException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -49,6 +50,17 @@ public class withdrawController implements Initializable {
     @FXML
     private Button withdrawBtn;
 
+    public withdrawController() {
+
+    }
+
+    void withdrawHandler(Button sceneBtn) throws IOException {
+        stage = (Stage) sceneBtn.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("withdraw.fxml"));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     @FXML
     void onBackClicked(ActionEvent event) throws IOException {
         stage = (Stage) backBtn.getScene().getWindow();
@@ -108,6 +120,18 @@ public class withdrawController implements Initializable {
             }
         }catch (NumberFormatException n) {
             errorLabel.setVisible(true);
+        }catch (NullPointerException n) {
+            stage = (Stage) withdrawBtn.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (SocketException s) {
+            stage = (Stage) withdrawBtn.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
 

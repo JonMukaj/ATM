@@ -1,3 +1,5 @@
+package model;
+
 // Simple class used to store details of a bank account
 public class BankAccount {
     public String accountNumber;

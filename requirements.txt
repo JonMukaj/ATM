@@ -20,3 +20,5 @@ Buttons for Server APP
 
 stylesheet:
 implement hover buttons - 
+
+withdraw button in withdraw.fxml has problems in linux+
