@@ -1,0 +1,16 @@
+
+.exit-bt {
+    -fx-background-color : #b52d2d;
+}
+.exit-bt:hover {
+    -fx-background-color : #A42A2A;
+}
+
+.start-bt {
+    -fx-background-color : #2db571;
+}
+.start-bt:hover {
+    -fx-background-color : #279B61;
+}
+
+

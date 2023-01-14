@@ -31,29 +31,36 @@ public class authController {
     public authController() {}
 
     @FXML
-    void authenticate(ActionEvent event) throws IOException {
+    void authenticate(ActionEvent event) throws IOException{
         stage = (Stage) authenticateBtn.getScene().getWindow();
 
-        isAuthenticated = client.authenticateUser(pinField.getText());
-        nrOfTries--;
+        try {
+            isAuthenticated = client.authenticateUser(pinField.getText());
+            nrOfTries--;
 
-        if(isAuthenticated) {
-            System.out.println("Authentication successful!");
-            root = FXMLLoader.load(getClass().getResource("operations.fxml"));
+            if(isAuthenticated) {
+                System.out.println("Authentication successful!");
+                root = FXMLLoader.load(getClass().getResource("operations.fxml"));
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+            else {
+                if(nrOfTries != 0) {
+                    wrongField.setText("Invalid PIN. Try again! " + "(" + nrOfTries + " attempts remaining)");
+                    pinField.setText("");
+                    System.out.println("Invalid PIN. Try again! " + "(" + nrOfTries + " attempts remaining)");
+                }
+                else {
+                    System.out.println("Authentication failed!");
+                    close(null);
+                }
+            }
+        } catch (NullPointerException n) {
+            root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }
-        else {
-            if(nrOfTries != 0) {
-                wrongField.setText("Invalid PIN. Try again! " + "(" + nrOfTries + " attempts remaining)");
-                pinField.setText("");
-                System.out.println("Invalid PIN. Try again! " + "(" + nrOfTries + " attempts remaining)");
-            }
-            else {
-                System.out.println("Authentication failed!");
-                close(null);
-            }
         }
     }
     @FXML

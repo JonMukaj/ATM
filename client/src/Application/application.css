@@ -54,6 +54,14 @@
     -fx-background-color : #319D2A;
 }
 
+.close-balance-bt {
+    -fx-background-color : #d93125;
+}
+
+.close-balance-bt:hover {
+    -fx-background-color : #C22B20;
+}
+
 
 
 

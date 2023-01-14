@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="1022.0" style="-fx-background-color: #dbd8d7;" stylesheets="@../Application/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ATMServer">
+   <children>
+      <Label layoutX="29.0" layoutY="27.0" text="ATM SERVER">
+         <font>
+            <Font name="Lohit Bengali" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="start" layoutX="274.0" layoutY="74.0" mnemonicParsing="false" onAction="#onStart" prefHeight="24.0" prefWidth="91.0" style="-fx-background-radius: 0;" styleClass="start-bt" text="START" textFill="WHITE" />
+      <Button fx:id="close" layoutX="385.0" layoutY="74.0" mnemonicParsing="false" onAction="#onClose" prefHeight="24.0" prefWidth="91.0" style="-fx-background-radius: 0;" styleClass="exit-bt" text="CLOSE" textFill="WHITE" />
+      <TextArea fx:id="logsField" editable="false" layoutX="29.0" layoutY="118.0" prefHeight="514.0" prefWidth="952.0" />
+      <TextField fx:id="portField" layoutX="29.0" layoutY="74.0" prefHeight="24.0" prefWidth="231.0" promptText="port number" visible="false" />
+      <Label fx:id="bindLabel" layoutX="36.0" layoutY="98.0" textFill="#f50505" visible="false" />
+      <Button fx:id="stop" layoutX="320.0" layoutY="74.0" mnemonicParsing="false" onAction="#onStop" prefHeight="24.0" prefWidth="91.0" style="-fx-background-radius: 0;" styleClass="exit-bt" text="STOP" textFill="WHITE" visible="false" />
+      <Label fx:id="infoLabel" layoutX="36.0" layoutY="78.0" textFill="#140000" visible="false" />
+   </children>
+</AnchorPane>

@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="490.0" style="-fx-background-color: #003052;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="490.0" style="-fx-background-color: #003052;" stylesheets="@../Application/application.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.balanceController">
    <children>
       <AnchorPane layoutX="88.0" layoutY="198.0" prefHeight="304.0" prefWidth="345.0" style="-fx-background-color: #fff; -fx-background-radius: 50;">
          <children>
@@ -32,29 +31,29 @@
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label fx:id="idLbl" layoutX="151.0" layoutY="71.0" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: #e6e6e6;">
+            <Label fx:id="idField" alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="71.0" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: #e6e6e6;">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label fx:id="nameLbl" layoutX="151.0" layoutY="109.0" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: #e6e6e6;">
+            <Label fx:id="nameField" alignment="CENTER" layoutX="151.0" layoutY="109.0" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: #e6e6e6;">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label fx:id="surnameLbl" layoutX="151.0" layoutY="152.0" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: #e6e6e6;">
+            <Label fx:id="surnameField" alignment="CENTER" layoutX="151.0" layoutY="152.0" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: #e6e6e6;" text=" ">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label fx:id="balanceLbl" layoutX="151.0" layoutY="198.0" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: #e6e6e6;">
+            <Label fx:id="balanceField" alignment="CENTER" layoutX="151.0" layoutY="198.0" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: #e6e6e6;" text=" ">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <Button fx:id="closeBtn" layoutX="27.0" layoutY="47.0" mnemonicParsing="false" onAction="#onClose" style="-fx-background-color: #d93125;" text="CLOSE" textFill="WHITE" />
+      <Button fx:id="closeBtn" layoutX="27.0" layoutY="47.0" mnemonicParsing="false" onAction="#onClose" styleClass="close-balance-bt" text="CLOSE" textFill="WHITE" />
       <ImageView fitHeight="90.0" fitWidth="92.0" layoutX="215.0" layoutY="47.0">
          <image>
             <Image url="@../Application/images/piggy-bank.png" />
