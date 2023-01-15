@@ -1,4 +1,4 @@
-package model;
+package atm.server.model;
 
 // Simple class used to store details of a bank account
 public class BankAccount {

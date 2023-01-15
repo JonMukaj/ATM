@@ -1,16 +1,13 @@
-package controller;
+package atm.client.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-
 import javafx.stage.Stage;
-import model.atmClient;
-
+import atm.client.model.atmClient;
 import java.io.IOException;
-import java.net.ConnectException;
 
 public class welcomeController {
     private Stage stage;

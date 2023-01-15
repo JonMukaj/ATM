@@ -1,4 +1,4 @@
-package model;
+package atm.client.model;
 
 import java.net.*;
 import java.util.Scanner;
@@ -17,7 +17,7 @@ public class atmClient {
 
     // Class constructor to instantiate a TCP connection to the server
     // at the specified address and port.
-    public atmClient(String address, int port) throws IOException, SocketTimeoutException, UnknownHostException
+    public atmClient(String address, int port) throws IOException, SocketTimeoutException, UnknownHostException, ConnectException
     {
         establishConnection(address, port);
     }
@@ -120,23 +120,30 @@ public class atmClient {
 
         // Send the DEBIT command to the server
         send("DEBIT " + amount);
-
-        // Read the response from the server (to consume OK or NOTOK message)
+        // Read the response from the server
         String response = bufferedReader.readLine();
-        System.out.println(response);
+        if(response.equals("OK")) {
+            response = bufferedReader.readLine();
+            System.out.println(response);
+        }
+        else {
+            response = bufferedReader.readLine();
+            System.out.println(response);
+        }
 
         return !response.contains("refused");
     }
 
     public boolean depositFunds(int amount) throws IOException, NullPointerException {
-        bufferedReader.readLine();
         // Send the CREDIT command to the server
         send("CREDIT " + amount);
 
         // Read the response from the server (to consume OK or NOTOK message)
-
         String response = bufferedReader.readLine();
-        System.out.println(response);
+        if(response.equals("OK")) {
+            response = bufferedReader.readLine();
+            System.out.println(response);
+        }
         return !(response == null);
     }
 

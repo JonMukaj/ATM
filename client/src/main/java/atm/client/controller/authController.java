@@ -1,5 +1,6 @@
-package controller;
+package atm.client.controller;
 
+import atm.client.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-import static controller.welcomeController.client;
+import static atm.client.controller.welcomeController.client;
 
 public class authController {
     private Stage stage;
@@ -40,7 +41,7 @@ public class authController {
 
             if(isAuthenticated) {
                 System.out.println("Authentication successful!");
-                root = FXMLLoader.load(getClass().getResource("operations.fxml"));
+                root = FXMLLoader.load(Main.class.getResource("operations.fxml"));
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
@@ -57,7 +58,7 @@ public class authController {
                 }
             }
         } catch (NullPointerException n) {
-            root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+            root = FXMLLoader.load(Main.class.getResource("welcome.fxml"));
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -66,7 +67,7 @@ public class authController {
     @FXML
     void close(ActionEvent event) throws IOException {
         stage = (Stage) closeBt.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+        root = FXMLLoader.load(Main.class.getResource("welcome.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -74,7 +75,7 @@ public class authController {
     }
 
     void authenticateHandler(Button startBtn) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("auth.fxml"));
+        root = FXMLLoader.load(Main.class.getResource("auth.fxml"));
         stage = (Stage) startBtn.getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

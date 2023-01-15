@@ -1,19 +1,17 @@
-package controller;
+package atm.client.controller;
 
+import atm.client.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-import static controller.welcomeController.client;
+
+import static atm.client.controller.welcomeController.client;
 public class operationsController {
     private Stage stage;
     private Scene scene;
@@ -38,7 +36,7 @@ public class operationsController {
             String response = client.getAccountBalance();
             if(response.equals("")) {
                 try {
-                    root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+                    root = FXMLLoader.load(Main.class.getResource("welcome.fxml"));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -50,7 +48,7 @@ public class operationsController {
                 String[] info = response.split(" ");
                 stage = (Stage) balanceBtn.getScene().getWindow();
                 FXMLLoader loader= new FXMLLoader(
-                        getClass().getResource(
+                        Main.class.getResource(
                                 "balance.fxml"
                         )
                 );
@@ -64,7 +62,7 @@ public class operationsController {
             }
         }catch (NullPointerException n) {
             try {
-                root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+                root = FXMLLoader.load(Main.class.getResource("welcome.fxml"));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -78,7 +76,7 @@ public class operationsController {
     void onClose(ActionEvent event) throws IOException {
         client.closeConnection();
         stage = (Stage) closeBtn.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+        root = FXMLLoader.load(Main.class.getResource("welcome.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -96,8 +94,4 @@ public class operationsController {
         w.withdrawHandler(withdrawBtn);
     }
 
-//    @Override
-//    public void initialize(URL url, ResourceBundle resourceBundle) {
-//
-//    }
 }

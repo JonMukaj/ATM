@@ -1,4 +1,5 @@
-package controller;
+package atm.client.controller;
+import atm.client.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +12,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static controller.operationsController.info;
-import static controller.welcomeController.client;
 
 public class balanceController implements Initializable {
     private Stage stage;
@@ -40,7 +38,7 @@ public class balanceController implements Initializable {
 
     @FXML
     void onClose(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("operations.fxml"));
+        root = FXMLLoader.load(Main.class.getResource("operations.fxml"));
         stage = (Stage) closeBtn.getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

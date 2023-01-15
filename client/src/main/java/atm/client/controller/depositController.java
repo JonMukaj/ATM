@@ -1,5 +1,6 @@
-package controller;
+package atm.client.controller;
 
+import atm.client.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
@@ -17,7 +18,7 @@ import java.net.SocketException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static controller.welcomeController.client;
+import static atm.client.controller.welcomeController.client;
 
 public class depositController implements Initializable{
     private Stage stage;
@@ -55,7 +56,7 @@ public class depositController implements Initializable{
 
     void depositHandler(Button sceneBtn) throws IOException {
         stage = (Stage) sceneBtn.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("deposit.fxml"));
+        root = FXMLLoader.load(Main.class.getResource("deposit.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -74,7 +75,7 @@ public class depositController implements Initializable{
                     successLabel.setVisible(true);
                 else {
                     stage = (Stage) depositBtn.getScene().getWindow();
-                    root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+                    root = FXMLLoader.load(Main.class.getResource("welcome.fxml"));
                     scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
@@ -84,7 +85,7 @@ public class depositController implements Initializable{
             errorLabel.setVisible(true);
         }catch (SocketException s) {
             stage = (Stage) depositBtn.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+            root = FXMLLoader.load(Main.class.getResource("welcome.fxml"));
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -94,7 +95,7 @@ public class depositController implements Initializable{
     @FXML
     void onBackClicked(ActionEvent event) throws IOException {
         stage = (Stage) backBtn.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("operations.fxml"));
+        root = FXMLLoader.load(Main.class.getResource("operations.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

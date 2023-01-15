@@ -1,6 +1,6 @@
-package model;
+package atm.client.model;
 
-import Application.Main;
+import atm.client.Main;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;

@@ -1,20 +1,17 @@
-package controller;
+package atm.client.controller;
 
-import Application.Main;
+import atm.client.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import model.CustomAlert;
-import model.atmClient;
+import atm.client.model.CustomAlert;
+import atm.client.model.atmClient;
 
 import java.io.IOException;
 import java.net.ConnectException;
@@ -23,7 +20,7 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ResourceBundle;
 
-import static controller.welcomeController.client;
+import static atm.client.controller.welcomeController.client;
 
 public class configController implements Initializable {
     @FXML
@@ -42,7 +39,7 @@ public class configController implements Initializable {
     }
 
     public void configHandler(Button startBtn) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("config.fxml"));
+        root = FXMLLoader.load(Main.class.getResource("config.fxml"));
         stage = (Stage) startBtn.getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -56,7 +53,7 @@ public class configController implements Initializable {
             if(port >= 1024) {
                 client = new atmClient(ip, port);
                 stage = (Stage) connectBtn.getScene().getWindow();
-                root = FXMLLoader.load(getClass().getResource("auth.fxml"));
+                root = FXMLLoader.load(Main.class.getResource("auth.fxml"));
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
@@ -71,13 +68,15 @@ public class configController implements Initializable {
             new CustomAlert("Wrong format!", "Port must be a number!");
         }catch (UnknownHostException u) {
             new CustomAlert("Unknown host!", "Wrong IP Address!");
+        }catch (ConnectException c) {
+            new CustomAlert("Connection refused!", "Wrong Port!");
         }
     }
 
     @FXML
     void onClose(ActionEvent event) throws IOException {
         stage = (Stage) closeBtn.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+        root = FXMLLoader.load(Main.class.getResource("welcome.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

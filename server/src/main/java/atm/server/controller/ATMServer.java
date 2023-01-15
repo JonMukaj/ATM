@@ -1,17 +1,20 @@
-package controller;
+package atm.server.controller;
 
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import model.BankAccount;
+import atm.server.model.BankAccount;
 import javafx.concurrent.Task;
 import java.net.*;
 import java.io.*;
@@ -38,27 +41,33 @@ public class ATMServer implements Initializable {
 
     @FXML
     private Label bindLabel;
+    @FXML
+    private Label connectionLabel;
+
+    @FXML
+    private Label nrLabel;
 
     @FXML
     private Button stop;
     @FXML
     private Button start;
-    // Initialize welcome socket
+
+    private static int nrOfConnectioons = 0;
     private ServerSocket serverSocket;
-    private int serverPort;
+    private static int serverPort;
     private ATMServer thisServer;
     private Thread serverThread;
     private Server serverTask;
     private boolean isRunning;
     private static StringProperty content;
-
-    ArrayList<BankAccount> bankAccounts;
+    private static StringProperty nr;
+    private ArrayList<BankAccount> bankAccounts;
+    private static final String fileName = "logs.txt";
     public ATMServer() {
 
     }
 
     // Class constructor to instantiate a welcome socket at the specified port
-    // and to initiate the main loop of the server.
     public ATMServer(int port) throws BindException
     {
         // Instantiate an array with bank accounts
@@ -69,9 +78,9 @@ public class ATMServer implements Initializable {
         bankAccounts.add(new BankAccount("02012007", "4444", 4000.00, "Kevin Tenolli"));
 
         try {
-            this.serverPort = port;
             // Open the welcoming TCP socket at the specified port
-            serverSocket = new ServerSocket(serverPort);
+            serverSocket = new ServerSocket(port);
+            ATMServer.serverPort = serverSocket.getLocalPort();
             serverTask = new Server();
             isRunning = true;
 //            System.out.println(connectionThreads.size());
@@ -99,7 +108,16 @@ public class ATMServer implements Initializable {
     }
     @FXML
     void onStop(ActionEvent event) throws InterruptedException {
-        System.out.println(Log.output("Server closed at port " + Integer.parseInt(portField.getText())));
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true));
+            out.write(content.getValue());
+            out.write("\n" + Log.output("Server closed at port " + ATMServer.serverPort));
+            out.close();
+        }
+        catch (IOException e) {
+            System.out.println("Exception Occurred" + e);
+        }
+        System.out.println(Log.output("Server closed at port " + ATMServer.serverPort));
         stage = (Stage) stop.getScene().getWindow();
         stage.close();
         thisServer.closeServer();
@@ -116,14 +134,24 @@ public class ATMServer implements Initializable {
             bindLabel.setVisible(false);
             int port = Integer.parseInt(portField.getText());
             setContent("");
+            setNr("0");
             thisServer = new ATMServer(port);
-            System.out.println(Log.output("Server started at port " + portField.getText()));
-//            setContent(content.get() + Log.output("Server started at port " + portField.getText()));
+            System.out.println("\n" + Log.output("Server started at port " + ATMServer.serverPort));
+            try {
+                BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true));
+                out.write(Log.output("Server started at port " + ATMServer.serverPort));
+                out.close();
+            }
+            catch (IOException e) {
+                System.out.println("Exception Occurred" + e);
+            }
             portField.setVisible(false);
             start.setVisible(false);
             close.setVisible(false);
             stop.setVisible(true);
-            infoLabel.setText("Server IP: " + Inet4Address.getLocalHost().getHostAddress() + "\tPort: " + port);
+            connectionLabel.setVisible(true);
+            nrLabel.setVisible(true);
+            infoLabel.setText("Server IP: " + Inet4Address.getLocalHost().getHostAddress() + "\tPort: " + ATMServer.serverPort);
             infoLabel.setVisible(true);
         }catch (NumberFormatException n) {
             bindLabel.setText("Wrong input!");
@@ -144,10 +172,23 @@ public class ATMServer implements Initializable {
         close.setVisible(true);
         stop.setVisible(false);
         infoLabel.setVisible(false);
+        connectionLabel.setVisible(false);
+        nrLabel.setVisible(false);
 
         content = new SimpleStringProperty();
+        nr = new SimpleStringProperty();
         start.disableProperty().bind(portField.textProperty().isEmpty());
         logsField.textProperty().bind(getContent());
+        nrLabel.textProperty().bind(getNr());
+        EventHandler<KeyEvent> tabListener = evt -> {
+            if (evt.getCode() == KeyCode.TAB && !evt.isShiftDown()) {
+                evt.consume();
+                logsField.requestFocus();
+                logsField.end();
+            }
+        };
+
+        logsField.addEventHandler(KeyEvent.ANY, tabListener);
     }
 
     private static StringProperty getContent() {
@@ -156,6 +197,14 @@ public class ATMServer implements Initializable {
 
     private static void setContent(String content) {
         ATMServer.content.set(content);
+    }
+
+    private static StringProperty getNr() {
+        return nr;
+    }
+
+    private static void setNr(String nr) {
+        ATMServer.nr.set(nr);
     }
 
     private class Server extends Task {
@@ -172,13 +221,13 @@ public class ATMServer implements Initializable {
                 // Await and accept connections by clients, then pass processing off to a new thread
                 Socket clientSocket = serverSocket.accept();
                 System.out.println(Log.output("LOG: Client with address " + clientSocket.getRemoteSocketAddress() + " connected successfully."));
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        setContent(content.get() + "\n" + Log.output("LOG: Client with address " + clientSocket.getRemoteSocketAddress() + " connected successfully."));
-                    }
-                });
+                Platform.runLater(() -> setContent(content.get() + "\n" + Log.output("LOG: Client with address " + clientSocket.getRemoteSocketAddress() + " connected successfully.")));
                 // Instantiate a new thread to handle the client's request
+                synchronized (this) {
+                    nrOfConnectioons++;
+                    System.out.println(nrOfConnectioons);
+                    Platform.runLater(() -> setNr(Integer.toString(nrOfConnectioons)));
+                }
                 new Thread(new ClientHandler(clientSocket,bankAccounts)).start();
             }
             return null;
@@ -375,6 +424,10 @@ public class ATMServer implements Initializable {
                 if(s.getMessage().equals("Client disconnected.")) {
                     System.out.println(Log.output("LOG: Client with address " + connectionSocket.getRemoteSocketAddress() + " disconnected."));
                     Platform.runLater(() -> setContent(content.get() + "\n" + Log.output("LOG: Client with address " + connectionSocket.getRemoteSocketAddress() + " disconnected.")));
+                    synchronized (this) {
+                        nrOfConnectioons--;
+                        Platform.runLater(() -> setNr(Integer.toString(nrOfConnectioons)));
+                    }
                 }
                 else {
                     // s.printStackTrace();
