@@ -1,0 +1,1 @@
+start client/app/bin/java -m atm.client/atm.client.Main
