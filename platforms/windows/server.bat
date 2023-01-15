@@ -1,0 +1,1 @@
+start server/app/bin/java -m atm.server/atm.server.Main
