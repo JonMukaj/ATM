@@ -1,0 +1,1 @@
+1. When negative value entered for withdraw, the transaction is marked as successfull but the amount is added to the balance.
