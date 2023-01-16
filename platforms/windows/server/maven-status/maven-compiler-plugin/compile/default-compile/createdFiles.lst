@@ -1,7 +1,0 @@
-atm\server\model\BankAccount.class
-atm\server\Main.class
-module-info.class
-atm\server\controller\ATMServer$Server.class
-atm\server\controller\ATMServer$Log.class
-atm\server\controller\ATMServer$ClientHandler.class
-atm\server\controller\ATMServer.class
