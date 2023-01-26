@@ -1,7 +1,6 @@
 package atm.client.model;
 
 import java.net.*;
-import java.util.Scanner;
 import java.io.*;
 
 // model.ATMClient class serves as the primary client-side class of the application,
@@ -13,7 +12,6 @@ public class atmClient {
     private OutputStreamWriter outputStreamWriter = null;
     private BufferedReader bufferedReader = null;
     private BufferedWriter bufferedWriter = null;
-    private Scanner cin = null;
 
     // Class constructor to instantiate a TCP connection to the server
     // at the specified address and port.

@@ -28,7 +28,6 @@ public class operationsController {
     @FXML
     private Button withdrawBtn;
 
-    public static String [] info;
     @FXML
     void onBalance(ActionEvent event) throws IOException {
         stage = (Stage) balanceBtn.getScene().getWindow();

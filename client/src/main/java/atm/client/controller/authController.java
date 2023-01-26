@@ -18,8 +18,7 @@ public class authController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private boolean isAuthenticated;
-    Integer nrOfTries = 3;
+    private Integer nrOfTries = 3;
     @FXML
     private Label wrongField;
     @FXML
@@ -36,7 +35,7 @@ public class authController {
         stage = (Stage) authenticateBtn.getScene().getWindow();
 
         try {
-            isAuthenticated = client.authenticateUser(pinField.getText());
+            boolean isAuthenticated = client.authenticateUser(pinField.getText());
             nrOfTries--;
 
             if(isAuthenticated) {

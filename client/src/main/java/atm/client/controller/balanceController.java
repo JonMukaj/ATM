@@ -14,9 +14,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class balanceController implements Initializable {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
     @FXML
     private Label balanceField;
 
@@ -38,9 +35,9 @@ public class balanceController implements Initializable {
 
     @FXML
     void onClose(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Main.class.getResource("operations.fxml"));
-        stage = (Stage) closeBtn.getScene().getWindow();
-        scene = new Scene(root);
+        Parent root = FXMLLoader.load(Main.class.getResource("operations.fxml"));
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
