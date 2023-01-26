@@ -10,9 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.SocketException;
 import java.net.URL;
@@ -49,7 +47,7 @@ public class depositController implements Initializable{
     private Button twenty;
 
     @FXML
-    private Button twohundred;
+    private Button fivehundred;
 
     public depositController() {
     }
@@ -68,7 +66,7 @@ public class depositController implements Initializable{
         errorLabel.setVisible(false);
         try {
             Integer amount = Integer.parseInt(input);
-            if(amount == 0)
+            if(amount <= 0)
                 errorLabel.setVisible(true);
             else {
                 if(client.depositFunds(amount))

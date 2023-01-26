@@ -110,7 +110,7 @@ public class withdrawController implements Initializable {
 
         try {
             Integer amount = Integer.parseInt(input);
-            if(amount == 0)
+            if(amount <= 0)
                 errorLabel.setVisible(true);
             else {
                 if(client.withdrawFunds(amount))
