@@ -27,7 +27,8 @@ How to run
 5.  In addition for ease of use, we have provided executables initially for Windows and Linux, which can be used even in systems where JDK is missing. You can find the  executables on the "platforms" directory.
 
 Usage
-----------`
+----------
+
 Upon running the client-side application, the user will be prompted to enter the server address and port number to connect to. The user can then enter various commands to interact with the ATM, such as START to establish a connection with the ATM, CLOSE to close the connection, AUTH <PIN> to authenticate with the ATM, BALANCE to check their account balance, DEBIT <amount> to withdraw money from their account, and CREDIT <amount> to deposit money into their account.
 
 The client-side application also has a graphical user interface (GUI) built using JavaFX, which provides an intuitive and user-friendly interface for the user to interact with the ATM.
